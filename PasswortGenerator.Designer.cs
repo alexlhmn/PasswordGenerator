@@ -33,6 +33,7 @@
             this.chkErweitert = new System.Windows.Forms.CheckBox();
             this.numPasswortlänge = new System.Windows.Forms.NumericUpDown();
             this.chkSonderzeichen = new System.Windows.Forms.CheckBox();
+            this.chkZwischenablage = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numPasswortlänge)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,12 +92,23 @@
             this.chkSonderzeichen.UseVisualStyleBackColor = true;
             this.chkSonderzeichen.CheckedChanged += new System.EventHandler(this.chkSonderzeichen_CheckedChanged);
             // 
+            // chkZwischenablage
+            // 
+            this.chkZwischenablage.AutoSize = true;
+            this.chkZwischenablage.Location = new System.Drawing.Point(189, 119);
+            this.chkZwischenablage.Name = "chkZwischenablage";
+            this.chkZwischenablage.Size = new System.Drawing.Size(147, 30);
+            this.chkZwischenablage.TabIndex = 5;
+            this.chkZwischenablage.Text = "direkt in Zwischenablage \r\nkopieren";
+            this.chkZwischenablage.UseVisualStyleBackColor = true;
+            // 
             // frmStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(354, 191);
+            this.Controls.Add(this.chkZwischenablage);
             this.Controls.Add(this.chkSonderzeichen);
             this.Controls.Add(this.numPasswortlänge);
             this.Controls.Add(this.chkErweitert);
@@ -117,6 +129,7 @@
         private System.Windows.Forms.CheckBox chkErweitert;
         private System.Windows.Forms.NumericUpDown numPasswortlänge;
         private System.Windows.Forms.CheckBox chkSonderzeichen;
+        private System.Windows.Forms.CheckBox chkZwischenablage;
     }
 }
 

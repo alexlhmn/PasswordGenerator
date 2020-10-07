@@ -15,6 +15,7 @@ namespace PasswordGenerator___alexlhmn
 
         #region Variablen
         int intPasswortlänge = 7;
+        string strGeneriertesPasswort;
         string strZeichenpool;
         const string strZeichenpoolEinfach = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890";
         const string strZeichenpoolErweitert = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz12345678901!§$%&/()=?*+#-_.:,;><";
@@ -68,15 +69,25 @@ namespace PasswordGenerator___alexlhmn
         private void btnGenerieren_Click(object sender, EventArgs e)
         {
             setzePasswortlänge();
-            txtPasswort.Text = generierePasswort(intPasswortlänge, strZeichenpool);
+            strGeneriertesPasswort = generierePasswort(intPasswortlänge, strZeichenpool);
+            txtPasswort.Text = strGeneriertesPasswort;
+            
+            if (chkErweitert.Checked && chkZwischenablage.Checked) // Erweiterte Optionen aktiviert und Kopie nach Zwischenablage aktiv?
+            {
+                System.Windows.Forms.Clipboard.SetText(strGeneriertesPasswort);
+            }
+            else
+            {
+                
+            }
         }
 
         private void chkErweitert_CheckedChanged(object sender, EventArgs e)
         {
             if (chkErweitert.Checked)
             {
-                this.MaximumSize = new Size(370, 180);
-                this.Size = new Size(370, 180);
+                this.MaximumSize = new Size(370, 190);
+                this.Size = new Size(370, 190);
                 chkErweitert.ForeColor = Color.DeepSkyBlue;
             }
             else
