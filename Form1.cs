@@ -15,20 +15,23 @@ namespace PasswordGenerator___alexlhmn
 
         #region Variablen
         int intPasswortlänge = 7;
+        string strZeichenpool;
+        const string strZeichenpoolEinfach = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890";
+        const string strZeichenpoolErweitert = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz12345678901!§$%&/()=?*+#-_.:,;><";
         #endregion
 
         public frmStart()
         {
             InitializeComponent();
             setzeStandardeinstellungen();
-            txtPasswort.Text = generierePasswort(intPasswortlänge);
+            txtPasswort.Text = generierePasswort(intPasswortlänge, strZeichenpool);
         }
 
+        #region Funktionen + Methoden
         private static Random random = new Random((int)DateTime.Now.Ticks);
 
-        private string generierePasswort(int Passwortlänge)
+        private string generierePasswort(int Passwortlänge, string Zeichenpool)
         {
-            const string Zeichenpool = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890";
             var Zeichen = Enumerable.Range(0, Passwortlänge)
                 .Select(x => Zeichenpool[random.Next(0, Zeichenpool.Length)]);
             return new string(Zeichen.ToArray());
@@ -39,18 +42,33 @@ namespace PasswordGenerator___alexlhmn
             intPasswortlänge = Convert.ToInt32(numPasswortlänge.Value);
         }
 
+        private void setzeZeichenpool()
+        {
+            if (chkSonderzeichen.Checked)
+            {
+                strZeichenpool = strZeichenpoolErweitert;
+            }
+            else
+            {
+                strZeichenpool = strZeichenpoolEinfach;
+            }
+        }
+
         private void setzeStandardeinstellungen()
         {
             this.MaximumSize = new Size(370, 120);
             this.Size = new Size(370, 120);
             chkErweitert.ForeColor = Color.Black;
+            strZeichenpool = strZeichenpoolEinfach;
         }
+
+        #endregion
 
         #region Frontend
         private void btnGenerieren_Click(object sender, EventArgs e)
         {
             setzePasswortlänge();
-            txtPasswort.Text = generierePasswort(intPasswortlänge);
+            txtPasswort.Text = generierePasswort(intPasswortlänge, strZeichenpool);
         }
 
         private void chkErweitert_CheckedChanged(object sender, EventArgs e)
@@ -66,8 +84,14 @@ namespace PasswordGenerator___alexlhmn
                 setzeStandardeinstellungen();  
             }
         }
+
+        private void chkSonderzeichen_CheckedChanged(object sender, EventArgs e)
+        {
+            setzeZeichenpool();
+        }
+
         #endregion
 
-  
+
     }
 }
