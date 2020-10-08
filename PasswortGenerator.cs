@@ -57,8 +57,8 @@ namespace PasswordGenerator___alexlhmn
 
         private void setzeStandardeinstellungen()
         {
-            this.MaximumSize = new Size(370, 120);
-            this.Size = new Size(370, 120);
+            this.MaximumSize = new Size(370, 135);
+            this.Size = new Size(370, 135);
             chkErweitert.ForeColor = Color.Black;
             strZeichenpool = strZeichenpoolEinfach;
         }
@@ -86,8 +86,8 @@ namespace PasswordGenerator___alexlhmn
         {
             if (chkErweitert.Checked)
             {
-                this.MaximumSize = new Size(370, 190);
-                this.Size = new Size(370, 190);
+                this.MaximumSize = new Size(370, 200);
+                this.Size = new Size(370, 200);
                 chkErweitert.ForeColor = Color.DeepSkyBlue;
             }
             else
@@ -100,6 +100,11 @@ namespace PasswordGenerator___alexlhmn
         {
             setzeZeichenpool();
         }
+
+        private void Info_Click(object sender, EventArgs e)
+        {
+            frmInfo frmInfo = new frmInfo();
+            frmInfo.ShowDialog();      }
 
         #endregion
 
