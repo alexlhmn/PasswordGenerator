@@ -63,9 +63,9 @@ namespace PasswordGenerator___alexlhmn.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _40_104848 {
+        internal static System.Drawing.Bitmap PasswortGenerator {
             get {
-                object obj = ResourceManager.GetObject("40_104848", resourceCulture);
+                object obj = ResourceManager.GetObject("PasswortGenerator", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
