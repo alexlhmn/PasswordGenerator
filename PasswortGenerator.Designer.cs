@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStart));
             this.txtPasswort = new System.Windows.Forms.TextBox();
             this.btnGenerieren = new System.Windows.Forms.Button();
             this.chkErweitert = new System.Windows.Forms.CheckBox();
@@ -71,6 +72,7 @@
             // 
             // numPasswortlänge
             // 
+            this.numPasswortlänge.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numPasswortlänge.Location = new System.Drawing.Point(13, 94);
             this.numPasswortlänge.Name = "numPasswortlänge";
             this.numPasswortlänge.Size = new System.Drawing.Size(120, 20);
@@ -84,9 +86,10 @@
             // chkSonderzeichen
             // 
             this.chkSonderzeichen.AutoSize = true;
-            this.chkSonderzeichen.Location = new System.Drawing.Point(189, 95);
+            this.chkSonderzeichen.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkSonderzeichen.Location = new System.Drawing.Point(166, 95);
             this.chkSonderzeichen.Name = "chkSonderzeichen";
-            this.chkSonderzeichen.Size = new System.Drawing.Size(153, 17);
+            this.chkSonderzeichen.Size = new System.Drawing.Size(164, 17);
             this.chkSonderzeichen.TabIndex = 4;
             this.chkSonderzeichen.Text = "Sonderzeichen verwenden";
             this.chkSonderzeichen.UseVisualStyleBackColor = true;
@@ -95,9 +98,10 @@
             // chkZwischenablage
             // 
             this.chkZwischenablage.AutoSize = true;
-            this.chkZwischenablage.Location = new System.Drawing.Point(189, 119);
+            this.chkZwischenablage.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkZwischenablage.Location = new System.Drawing.Point(166, 119);
             this.chkZwischenablage.Name = "chkZwischenablage";
-            this.chkZwischenablage.Size = new System.Drawing.Size(147, 30);
+            this.chkZwischenablage.Size = new System.Drawing.Size(176, 30);
             this.chkZwischenablage.TabIndex = 5;
             this.chkZwischenablage.Text = "direkt in Zwischenablage \r\nkopieren";
             this.chkZwischenablage.UseVisualStyleBackColor = true;
@@ -114,6 +118,8 @@
             this.Controls.Add(this.chkErweitert);
             this.Controls.Add(this.btnGenerieren);
             this.Controls.Add(this.txtPasswort);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmStart";
             this.Text = "Passwort-Generator";
             ((System.ComponentModel.ISupportInitialize)(this.numPasswortlänge)).EndInit();
