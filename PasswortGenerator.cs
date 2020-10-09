@@ -15,10 +15,13 @@ namespace PasswordGenerator___alexlhmn
 
         #region Variablen
         int intPasswortlänge = 7;
+        int intAnzahlPasswörter = 5;
         string strGeneriertesPasswort;
         string strZeichenpool;
         const string strZeichenpoolEinfach = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890";
         const string strZeichenpoolErweitert = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz12345678901!§$%&/()=?*+#-_.:,;><";
+
+        public static List<string> listPasswörter;
         #endregion
 
         public frmStart()
@@ -36,6 +39,20 @@ namespace PasswordGenerator___alexlhmn
             var Zeichen = Enumerable.Range(0, Passwortlänge)
                 .Select(x => Zeichenpool[random.Next(0, Zeichenpool.Length)]);
             return new string(Zeichen.ToArray());
+        }
+
+        private void generiereMehrerePasswörter(int Passwortlänge, int Passwortanzahl, string Zeichenpool)
+        {
+            int i = 0;
+            listPasswörter = new List<string>();
+
+            for (i = 0; i < Passwortanzahl; i++)
+            {
+                listPasswörter.Add(generierePasswort(Passwortlänge, Zeichenpool));     
+            }
+
+            frmPasswortliste frmPasswortliste = new frmPasswortliste();
+            frmPasswortliste.Show();
         }
 
         private void setzePasswortlänge()
@@ -57,8 +74,8 @@ namespace PasswordGenerator___alexlhmn
 
         private void setzeStandardeinstellungen()
         {
-            this.MaximumSize = new Size(370, 135);
-            this.Size = new Size(370, 135);
+            this.MaximumSize = new Size(460, 160);
+            this.Size = new Size(460, 160);
             chkErweitert.ForeColor = Color.Black;
             strZeichenpool = strZeichenpoolEinfach;
         }
@@ -86,8 +103,8 @@ namespace PasswordGenerator___alexlhmn
         {
             if (chkErweitert.Checked)
             {
-                this.MaximumSize = new Size(370, 200);
-                this.Size = new Size(370, 200);
+                this.MaximumSize = new Size(460, 280);
+                this.Size = new Size(460, 280);
                 chkErweitert.ForeColor = Color.DeepSkyBlue;
             }
             else
@@ -105,6 +122,24 @@ namespace PasswordGenerator___alexlhmn
         {
             frmInfo frmInfo = new frmInfo();
             frmInfo.ShowDialog();      }
+
+        private void btnMehrereGenerieren_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(txtAnzahlPasswörter.Text))
+            {
+                generiereMehrerePasswörter(intPasswortlänge, intAnzahlPasswörter, strZeichenpool);
+            }
+            else if (Int32.TryParse(txtAnzahlPasswörter.Text, out var outParse))
+            {
+                intAnzahlPasswörter = Convert.ToInt32(txtAnzahlPasswörter.Text);
+                generiereMehrerePasswörter(intPasswortlänge, intAnzahlPasswörter, strZeichenpool);
+            }
+            else
+            {
+                MessageBox.Show("Es wurde keine gültige Anzahl eingegeben. Bitte nur Zahlen verwenden!", "Fehler");
+            }
+
+        }
 
         #endregion
 
